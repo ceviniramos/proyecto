@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento de Vehículos - Grupo 10</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Mantenimiento de Vehículos</h1>
+    <nav>
+        <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#talleres">Talleres</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section id="servicios">
+        <h2>Servicios Realizados</h2>
+        <p>En nuestros talleres realizamos mantenimiento integral: cambio de aceite, frenos, alineación y diagnóstico electrónico.</p>
+    </section>
+
+    <section id="talleres">
+        <h3>Nuestros Talleres Mecánicos</h3>
+        <div class="galeria">
+            <div class="tarjeta">
+                <img src="{{ url_for('static', filename='img/taller1.jpg') }}" alt="Taller mecánico 1">
+                <p>Taller Central - Diagnóstico computarizado.</p>
+            </div>
+            <div class="tarjeta">
+                <img src="{{ url_for('static', filename='img/taller2.jpg') }}" alt="Taller mecánico 2">
+                <p>Taller Norte - Especialistas en frenos y suspensión.</p>
+            </div>
+            <div class="tarjeta">
+                <img src="{{ url_for('static', filename='img/taller3.jpg') }}" alt="Taller mecánico 3">
+                <p>Taller Sur - Atención rápida y mantenimiento express.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Encuéntranos</h2>
+        <iframe 
+            src= "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.8427379313143!2d-60.67620712503542!3d-32.95516117231741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab61ca1e2bad%3A0x3f7a9a88a9b30b41!2sTaller%20Mec%C3%A1nico%20Bolognesi!5e0!3m2!1ses-419!2sar!4v1761667716660!5m2!1ses-419!2sar"            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+
+    <section id="historial">
+        <h2>Historial de Vehículos</h2>
+
+        <!-- Tabla -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Patente</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Servicio</th>
+                    <th>Fecha</th>
+                    <th>Costo ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for v in vehiculos %}
+                <tr>
+                    <td>{{ v.id }}</td>
+                    <td>{{ v.patente }}</td>
+                    <td>{{ v.marca }}</td>
+                    <td>{{ v.modelo }}</td>
+                    <td>{{ v.servicio }}</td>
+                    <td>{{ v.fecha }}</td>
+                    <td>{{ v.costo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Formulario en la misma página -->
+        <h3>Agregar nuevo vehículo</h3>
+        <form method="POST" class="formulario">
+            <label>Patente:</label>
+            <input type="text" name="patente" required>
+
+            <label>Marca:</label>
+            <input type="text" name="marca" required>
+
+            <label>Modelo:</label>
+            <input type="text" name="modelo" required>
+
+            <label>Servicio:</label>
+            <input type="text" name="servicio" required>
+
+            <label>Fecha:</label>
+            <input type="date" name="fecha" required>
+
+            <label>Costo ($):</label>
+            <input type="number" name="costo" required>
+
+            <button type="submit">Guardar</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Grupo 10 - Mantenimiento de Vehículos</p>
+    <p>Jeremías | Agustín | Bruno</p>
+</footer>
+
+</body>
+</html>
+
