@@ -1,13 +1,13 @@
-body{
+body {
     background: #f4f4f4;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
 /* MENÚ */
-.menu ul{
+.menu ul {
     list-style: none;
     background: #000;
     margin: 0;
@@ -15,60 +15,76 @@ body{
     display: flex;
     justify-content: center;
 }
-.menu li{ margin: 0 15px; }
-.menu a{
+.menu li { 
+    margin: 0 15px; 
+}
+.menu a {
     color: white;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
 }
+.menu a:hover {
+    color: #ffcc00;
+}
 
 /* TÍTULOS */
-h1,h2,h3{ color: navy; }
+h1, h2, h3 {
+    color: navy;
+    margin-top: 20px;
+}
 
 /* FLEXBOX IMÁGENES */
-.contenedor-img{
+.contenedor-img {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin: 30px;
+    margin: 30px auto;
+    flex-wrap: wrap;
 }
 
-.caja img{
-    width: 220px;
-    height: 150px;
+.caja {
+    background: white;
     border-radius: 8px;
+    padding: 10px;
+    width: 250px;
     box-shadow: 0px 0px 5px gray;
 }
-
-.caja p{
+.caja img {
+    width: 100%;
+    height: 160px;
+    border-radius: 8px;
+}
+.caja p {
     font-weight: bold;
     margin-top: 10px;
 }
 
 /* TABLA */
-.tabla{
-    margin: auto;
-    width: 70%;
+.tabla {
+    margin: 30px auto;
+    width: 80%;
     border-collapse: collapse;
     background: white;
 }
-
-.tabla th, .tabla td{
+.tabla th, .tabla td {
     padding: 10px;
     border: 1px solid #999;
 }
+.tabla th {
+    background-color: #0a3d62;
+    color: white;
+}
 
 /* MAPA */
-.mapa{
+.mapa {
     margin: 30px;
 }
 
 /* FOOTER */
-footer{
+footer {
     background: black;
     color: white;
     padding: 10px;
     margin-top: 40px;
 }
-

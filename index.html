@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mantenimiento de Vehículos - Grupo 10</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -24,85 +24,74 @@
     <section id="inicio">
         <h1>Mantenimiento de Vehículos</h1>
         <h2>Talleres Mecánicos</h2>
-        <h3>Servicios más comunes</h3>
+        <h3>Servicios más comunes para tu auto</h3>
+        <p>En este sitio encontrarás información sobre los principales servicios de mantenimiento y los talleres más recomendados.</p>
     </section>
 
     <!-- FLEXBOX IMÁGENES -->
     <section id="servicios">
+        <h2>Servicios Destacados</h2>
         <div class="contenedor-img">
             <div class="caja">
-                <img src="{{ url_for('static', filename='img/cambio_aceite.jpg') }}" alt="Cambio de aceite">
-                <p>Cambio de aceite</p>
+                <img src="img/cambio_aceite.jpg" alt="Cambio de aceite">
+                <p>Cambio de aceite y filtros</p>
             </div>
 
             <div class="caja">
-                <img src="{{ url_for('static', filename='img/alineacion.webp') }}" alt="Alineación y balanceo">
+                <img src="img/alineacion.webp" alt="Alineación y balanceo">
                 <p>Alineación y balanceo</p>
             </div>
 
             <div class="caja">
-                <img src="{{ url_for('static', filename='img/frenos.jpg') }}" alt="Revisión de frenos">
+                <img src="img/frenos.jpg" alt="Revisión de frenos">
                 <p>Revisión de frenos</p>
             </div>
         </div>
     </section>
 
-    <!-- TABLA DE BASE DE DATOS -->
+    <!-- TABLA DE TALLERES -->
     <section id="talleres">
-        <h2>Base de datos: Vehículos y servicios realizados</h2>
+        <h2>Talleres Recomendados</h2>
+        <p>Estos son algunos de los talleres especializados donde podrás realizar el mantenimiento de tu vehículo con confianza.</p>
 
-        {% if vehiculos %}
         <table class="tabla">
             <tr>
-                <th>Patente</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Año</th>
+                <th>Nombre del Taller</th>
+                <th>Dirección</th>
+                <th>Especialidad</th>
             </tr>
-            {% for v in vehiculos %}
             <tr>
-                <td>{{ v.patente }}</td>
-                <td>{{ v.marca }}</td>
-                <td>{{ v.modelo }}</td>
-                <td>{{ v.año }}</td>
+                <td>LeMans Rosario</td>
+                <td>Av. Pellegrini 3120</td>
+                <td>Chapería y pintura</td>
             </tr>
-            {% endfor %}
+            <tr>
+                <td>AutoService Center</td>
+                <td>Bv. Oroño 2456</td>
+                <td>Mecánica general</td>
+            </tr>
+            <tr>
+                <td>Frenos y Suspensión SRL</td>
+                <td>San Martín 1850</td>
+                <td>Sistemas de freno y suspensión</td>
+            </tr>
         </table>
-        {% endif %}
-
-        <br>
-
-        {% if servicios %}
-        <table class="tabla">
-            <tr>
-                <th>Vehículo</th>
-                <th>Servicio</th>
-                <th>Fecha</th>
-                <th>Taller</th>
-            </tr>
-            {% for s in servicios %}
-            <tr>
-                <td>{{ s.id_vehiculo }}</td>
-                <td>{{ s.servicio }}</td>
-                <td>{{ s.fecha }}</td>
-                <td>{{ s.taller }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% endif %}
     </section>
 
     <!-- MAPA -->
-    <h2>Ubicación de un taller real</h2>
-    <div class="mapa">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26782.441938290965!2d-60.71595682568355!3d-32.956150999999984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ad41b0982eb5%3A0x1eb1f8a0af22f29b!2sLeMans%20-%20Taller%20Chaper%C3%ADa%20y%20Pintura%20-%20Rosario!5e0!3m2!1ses!2sar!4v1761776521586!5m2!1ses!2sar"
-            width="400" height="250" style="border:0;" allowfullscreen loading="lazy">
-        </iframe>
-    </div>
+    <section id="mapa">
+        <h2>Ubicación de un taller real</h2>
+        <div class="mapa">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26782.441938290965!2d-60.71595682568355!3d-32.956150999999984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ad41b0982eb5%3A0x1eb1f8a0af22f29b!2sLeMans%20-%20Taller%20Chaper%C3%ADa%20y%20Pintura%20-%20Rosario!5e0!3m2!1ses!2sar!4v1761776521586!5m2!1ses!2sar"
+                width="400" height="250" style="border:0;" allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+    </section>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>Trabajo Práctico - Grupo 10</p>
+        <p>Trabajo Práctico - Grupo 10 | HTML y CSS</p>
     </footer>
 
 </body>
